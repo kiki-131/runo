@@ -261,7 +261,7 @@ if (orderForm) {
         
         // mailtoリンクを開く
         // 実際のメールアドレスに変更してください
-        const mailTo = `mailto:info@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        const mailTo = `mailto:runo.handmade@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         window.location.href = mailTo;
         
         // モーダルを閉じる
