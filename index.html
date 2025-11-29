@@ -328,7 +328,7 @@
                     <span class="link-title">FAQ</span>
                     <span class="link-subtitle">よくあるご質問</span>
                 </a>
-                <a href="#" class="contact-link">
+                <a href="#" class="contact-link btn-contact">
                     <span class="link-title">Contact</span>
                     <span class="link-subtitle">各種お問い合わせ</span>
                 </a>
@@ -381,6 +381,27 @@
                     <input type="tel" id="order-phone" required placeholder="090-0000-0000">
                 </div>
                 <button type="submit" class="btn-submit">メールソフトを起動して注文</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- お問い合わせモーダル -->
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal close-contact">&times;</span>
+            <h2>お問い合わせ</h2>
+            <p class="modal-desc">以下の内容でメールソフトを起動します。<br>送信してお問い合わせを完了してください。</p>
+            
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="contact-name">お名前</label>
+                    <input type="text" id="contact-name" required placeholder="山田 太郎">
+                </div>
+                <div class="form-group">
+                    <label for="contact-message">お問い合わせ内容</label>
+                    <textarea id="contact-message" required placeholder="ご質問やご要望をご記入ください" style="height: 150px;"></textarea>
+                </div>
+                <button type="submit" class="btn-submit">メールソフトを起動して送信</button>
             </form>
         </div>
     </div>

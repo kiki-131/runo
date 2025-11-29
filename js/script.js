@@ -270,3 +270,70 @@ if (orderForm) {
         alert('メールソフトが起動します。メールを送信して注文を完了してください。');
     });
 }
+
+// お問い合わせモーダル制御
+const contactModal = document.getElementById('contact-modal');
+const closeContact = document.querySelector('.close-contact');
+const contactForm = document.getElementById('contact-form');
+const contactBtn = document.querySelector('.btn-contact');
+
+// Contactボタンクリック時
+if (contactBtn) {
+    contactBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        contactModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+}
+
+// お問い合わせモーダルを閉じる
+if (closeContact) {
+    closeContact.addEventListener('click', () => {
+        contactModal.style.display = 'none';
+        document.body.style.overflow = '';
+    });
+}
+
+// 背景クリックで閉じる（共通）
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+    if (e.target === contactModal) {
+        contactModal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+});
+
+// お問い合わせフォーム送信
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('contact-name').value;
+        const message = document.getElementById('contact-message').value;
+        
+        // メール本文作成
+        const subject = `【お問い合わせ】${name}様より`;
+        const body = `
+■お名前
+${name}
+
+■お問い合わせ内容
+${message}
+
+--------------------------------
+※このメールを送信してお問い合わせを完了してください。
+        `.trim();
+        
+        // mailtoリンクを開く
+        const mailTo = `mailto:runo.handmade@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailTo;
+        
+        // モーダルを閉じる
+        contactModal.style.display = 'none';
+        document.body.style.overflow = '';
+        alert('メールソフトが起動します。メールを送信してお問い合わせを完了してください。');
+    });
+}
